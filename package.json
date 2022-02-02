@@ -1,0 +1,25 @@
+{
+  "name": "tsadiscordbot",
+  "version": "1.0.0",
+  "description": "discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewMommers/TSADiscordBot.git"
+  },
+  "author": "GamingPanthers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewMommers/TSADiscordBot/issues"
+  },
+  "homepage": "https://github.com/AndrewMommers/TSADiscordBot#readme",
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "discord.js": "^14.0.0-dev.1643760370.803665",
+    "glob": "^7.2.0",
+    "nodemon": "^2.0.15"
+  }
+}
