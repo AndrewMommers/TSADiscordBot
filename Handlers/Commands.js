@@ -24,14 +24,14 @@ module.exports = async (client) => {
         return Table.addRow(command.name, "🔸 FAILED", "Missins a desciption.")
 
         if(command.permission) {
-            if(Perms.include(command.permission))
-            command.defaultPermission = fasle;
+            if(Perms.includes(command.permission))
+            command.defaultPermission = false;
             else
             return Table.addRow(command.name, "🔸", "Permission is invalid.")
         }
 
-        client.commadns.set(command.name, command);
-        CommadnsArray.push(command);
+        client.commands.set(command.name, command);
+        CommandsArray.push(command);
 
         await Table.addRow(command.name, "🔹 SUCCESSFUL");
     });
@@ -40,12 +40,12 @@ module.exports = async (client) => {
 
     //PERMISSION CHECK
 
-    client.on("ready", async ( ) => {
+    client.on("ready", async () => {
         const MainGuild = await client.guilds.cache.get("937857220610248754");
 
-        MainGuild.commands.set(CommandArray).then(async (command) =>
+        MainGuild.commands.set(CommandArray).then(async (command) => {
         const Roles = (commandName) => {
-            const cmdPerms = CommadnsArray.find((c) = > c.name === commandName).permission;
+            const cmdPerms = CommadnsArray.find((c) => c.name === commandName).permission;
 
             return MainGuild.roles.cache.filter((r) => r.permissions.has(cmdPerms));
         }
