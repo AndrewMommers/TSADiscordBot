@@ -12,7 +12,7 @@ const Ascii = require("ascii-table");
 module.exports = async (client) => {
     const Table = new asciiTable("Command Loaded");
 
-    CommandArray = [];
+    CommandsArray = [];
 
     (await PG(`${process.cwd()}/Commands/*/*.js`)).map(async (file) => {
         const command = require(file);
@@ -27,13 +27,13 @@ module.exports = async (client) => {
             if(Perms.includes(command.permission))
             command.defaultPermission = false;
             else
-            return Table.addRow(command.name, "🔸", "Permission is invalid.")
+            return Table.addRow(command.name, "🔸 FAILED", "Permission is invalid.")
         }
 
         client.commands.set(command.name, command);
         CommandsArray.push(command);
 
-        await Table.addRow(command.name, "🔹 SUCCESSFUL");
+        await Table.addRow(command.name, "✔ SUCCESSFUL");
     });
 
     console.log(Table.toString());

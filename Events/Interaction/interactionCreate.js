@@ -1,7 +1,7 @@
 const { Client, CommandInteration, MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: "interationCreate",
+    name: "interactionCreate",
     /**
      * 
      * @param {CommandInteraction} interaction

@@ -22,7 +22,7 @@ module.exports = async (client) => {
             client.on(event.name, (...args) => event.execute(...args, client));
         };
 
-        await Table.addRow(event.anem, "✔ SECCESSFUL")
+        await Table.addRow(event.name, "✔ SECCESSFUL")
     });
 
     console.log(Table.toString());
